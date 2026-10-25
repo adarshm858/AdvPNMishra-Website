@@ -1,0 +1,116 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', 'Poppins', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6, .font-serif-heading {
+    font-family: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+    letter-spacing: -0.015em;
+  }
+
+  .font-cormorant {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+  }
+
+  .font-cinzel {
+    font-family: 'Cinzel', serif;
+    letter-spacing: 0.05em;
+  }
+}
+
+/* Custom Utilities & Glassmorphism */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(212, 175, 55, 0.22);
+}
+
+.dark .glass-panel {
+  background: rgba(9, 21, 38, 0.82);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(212, 175, 55, 0.22);
+}
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, #D4AF37 0%, #F5E6B3 45%, #AA7C11 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-gradient-bg {
+  background: linear-gradient(135deg, #D4AF37 0%, #C49826 60%, #9E7412 100%);
+}
+
+.gold-gradient-bg-subtle {
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(184, 134, 11, 0.05) 100%);
+}
+
+.navy-gradient-bg {
+  background: linear-gradient(135deg, #09172B 0%, #040A14 100%);
+}
+
+.navy-card-bg {
+  background: linear-gradient(180deg, rgba(14, 29, 52, 0.95) 0%, rgba(7, 16, 29, 0.98) 100%);
+}
+
+.legal-border {
+  border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.legal-border-hover:hover {
+  border-color: rgba(212, 175, 55, 0.55);
+}
+
+/* Gold glow effect */
+.gold-glow {
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.2);
+}
+
+.gold-glow-subtle {
+  box-shadow: 0 4px 20px -2px rgba(212, 175, 55, 0.15);
+}
+
+/* Subtle Animated Shimmer for Badges */
+@keyframes goldShimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.shimmer-badge {
+  background: linear-gradient(90deg, rgba(212, 175, 55, 0.1) 0%, rgba(212, 175, 55, 0.25) 50%, rgba(212, 175, 55, 0.1) 100%);
+  background-size: 200% 100%;
+  animation: goldShimmer 4s infinite linear;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #060D18;
+}
+::-webkit-scrollbar-thumb {
+  background: #A68326;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #D4AF37;
+}
+
+/* Fade in animation utility */
+@keyframes subtleFadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fadeIn {
+  animation: subtleFadeIn 0.3s ease-out forwards;
+}
